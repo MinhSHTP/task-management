@@ -1,5 +1,6 @@
-const taskService = require("../services/task-service");
-const { get, upsert, remove } = taskService;
+const Task = require("../schemas/Task");
+const baseService = require("../services/base-service")(Task);
+const { get, upsert, remove } = baseService;
 
 const taskResolvers = {
   Query: {
