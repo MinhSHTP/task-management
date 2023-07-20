@@ -7,4 +7,6 @@ const TASK_STATUS = [
   "Removed",
 ];
 
-module.exports = { TASK_STATUS };
+const BCRYPT_ROUNDS = 10;
+
+module.exports = { TASK_STATUS, BCRYPT_ROUNDS };
