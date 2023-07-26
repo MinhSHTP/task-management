@@ -4,32 +4,24 @@ const User = require("../schemas/User");
 const { getSecretKey } = require("../utils/utils");
 
 const doLogin = async ({ username, password }) => {
-  try {
-    const userInfo = await User.findOne({ username }).lean();
-    if (!userInfo || !bcrypt.compareSync(password, userInfo.password))
-      throw new Error("Username or password is wrong");
+  const userInfo = await User.findOne({ username }).lean();
+  if (!userInfo || !bcrypt.compareSync(password, userInfo.password))
+    throw new Error("Username or password is wrong");
 
-    const secretKey = await getSecretKey();
-    const signOptions = {
-      algorithm: "HS256",
-      subject: userInfo._id.toString(),
-      expiresIn: "30s",
-    };
+  const secretKey = await getSecretKey();
+  const signOptions = {
+    algorithm: "HS256",
+    subject: userInfo._id.toString(),
+    expiresIn: "30s",
+  };
 
-    delete userInfo.password;
-    const token = jsonwebtoken.sign(userInfo, secretKey, signOptions);
-    return {
-      success: true,
-      message: `Login success`,
-      token,
-    };
-  } catch (err) {
-    return {
-      success: false,
-      message: `${err.message}`,
-      token: null,
-    };
-  }
+  delete userInfo.password;
+  const token = jsonwebtoken.sign(userInfo, secretKey, signOptions);
+  return {
+    success: true,
+    message: `Login success`,
+    token,
+  };
 };
 
 module.exports = { doLogin };
