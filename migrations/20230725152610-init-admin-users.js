@@ -9,11 +9,21 @@ module.exports = {
       {
         username: "admin01",
         password: bcrypt.hashSync("admin01", salt),
+        email: "admin01@yopmail.com",
+        displayname: "Administrator 01",
+        role: "admin",
+        joined_group: [],
+        joining_group: [],
         created_at: new Date(),
       },
       {
         username: "admin02",
         password: bcrypt.hashSync("admin02", salt),
+        email: "admin02@yopmail.com",
+        displayname: "Administrator 02",
+        role: "admin",
+        joined_group: [],
+        joining_group: [],
         created_at: new Date(),
       },
     ];
