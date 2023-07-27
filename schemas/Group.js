@@ -1,4 +1,4 @@
-const mongoose = reqruire("mongoose");
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const schema = new Schema(
@@ -7,7 +7,6 @@ const schema = new Schema(
     members: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
     manager: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
   },
-
   { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
 );
 

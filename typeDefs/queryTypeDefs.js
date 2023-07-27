@@ -1,7 +1,7 @@
 const queryTypeDefs = `
     type Query {
         tasks: [Task]!
-        assignees: Boolean!
+        users: [User]!
     }
 `;
 

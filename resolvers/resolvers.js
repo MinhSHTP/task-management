@@ -1,10 +1,10 @@
 const taskResolvers = require("./taskResolvers");
-const assigneeResolvers = require("./assigneeResolvers");
+const userResolvers = require("./userResolvers");
 const authResolvers = require("./authResolvers");
 
 const resolvers = {
   ...taskResolvers,
-  ...assigneeResolvers,
+  ...userResolvers,
   ...authResolvers,
 };
 module.exports = resolvers;

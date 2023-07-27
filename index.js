@@ -8,8 +8,34 @@ const { expressMiddleware } = require("@apollo/server/express4");
 const { ApolloServer } = require("@apollo/server");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const { getSecretKey } = require("./utils/utils");
+const jwt = require("jsonwebtoken");
 
 const port = process.env.PORT;
+
+const authMiddleware = async (request) => {
+  const header = request.headers.authorization;
+  if (!header) return { isAuth: false };
+  const token = header.split(" ");
+  if (!token) return { isAuth: false };
+  let decodeToken;
+  const secretKey = await getSecretKey();
+
+  try {
+    decodeToken = jwt.verify(token[1], secretKey);
+  } catch (err) {
+    return { isAuth: false };
+  }
+  if (!decodeToken) return { isAuth: false };
+  const { _id } = decodeToken;
+  if (_id)
+    return {
+      isAuth: true,
+      user: {
+        ...decodeToken,
+      },
+    };
+};
 
 const startServer = async () => {
   const app = new express();
@@ -20,7 +46,15 @@ const startServer = async () => {
   });
 
   await graphqlServer.start();
-  app.use(cors(), bodyParser.json(), expressMiddleware(graphqlServer));
+  app.use(
+    cors(),
+    bodyParser.json(),
+    expressMiddleware(graphqlServer, {
+      context: async ({ req }) => {
+        return authMiddleware(req);
+      },
+    })
+  );
   const server = http.createServer(app);
   server.listen(port);
 };
