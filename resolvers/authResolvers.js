@@ -9,4 +9,4 @@ const authResolvers = {
   },
 };
 
-module.exports = authResolvers;
+module.exports = { authMutations: authResolvers.Mutation };

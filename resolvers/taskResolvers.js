@@ -24,4 +24,8 @@ const taskResolvers = {
     },
   },
 };
-module.exports = taskResolvers;
+
+module.exports = {
+  taskQueries: taskResolvers.Query,
+  taskMutations: taskResolvers.Mutation,
+};

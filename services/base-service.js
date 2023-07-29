@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 module.exports = (schema) => {
   const get = async () => {
-    return await schema.find({}).toArray();
+    return await schema.find({});
   };
 
   const upsert = async (input) => {
