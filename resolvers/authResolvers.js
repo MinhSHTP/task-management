@@ -1,7 +1,6 @@
 const { doLogin } = require("../services/auth-service");
 
 const authResolvers = {
-  Query: {},
   Mutation: {
     login: async (_, args) => {
       const { loginInput } = args;
@@ -10,4 +9,4 @@ const authResolvers = {
   },
 };
 
-module.exports = authResolvers;
+module.exports = { authMutations: authResolvers.Mutation };

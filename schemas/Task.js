@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const { TASK_STATUS } = require("../utils/Constants");
-const schema = Schema(
+
+const schema = new Schema(
   {
     name: { type: String },
     status: {
@@ -16,5 +17,5 @@ const schema = Schema(
   }
 );
 
-const Task = mongoose.model("task", schema);
+const Task = mongoose.model("tasks", schema);
 module.exports = Task;

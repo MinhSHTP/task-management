@@ -12,7 +12,7 @@ const doLogin = async ({ username, password }) => {
   const signOptions = {
     algorithm: "HS256",
     subject: userInfo._id.toString(),
-    expiresIn: "30s",
+    expiresIn: "1d",
   };
 
   delete userInfo.password;

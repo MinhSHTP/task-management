@@ -1,10 +1,16 @@
-const taskResolvers = require("./taskResolvers");
-const assigneeResolvers = require("./assigneeResolvers");
-const authResolvers = require("./authResolvers");
+const { taskQueries, taskMutations } = require("./taskResolvers");
+const { userQueries, userMutations } = require("./userResolvers");
+const { authMutations } = require("./authResolvers");
 
 const resolvers = {
-  ...taskResolvers,
-  ...assigneeResolvers,
-  ...authResolvers,
+  Query: {
+    ...taskQueries,
+    ...userQueries,
+  },
+  Mutation: {
+    ...authMutations,
+    ...taskMutations,
+    ...userMutations,
+  },
 };
 module.exports = resolvers;
