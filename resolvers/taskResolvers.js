@@ -2,7 +2,7 @@ const Task = require("../schemas/Task");
 const taskService = require("../services/base-service")(Task);
 const {
   get: getTasks,
-  upsert: onUpsertTasks,
+  upsert: onUpsertTask,
   remove: onRemoveTask,
 } = taskService;
 
@@ -16,7 +16,7 @@ const taskResolvers = {
   Mutation: {
     upsertTask: async (_, args) => {
       const { taskInput } = args;
-      return await onUpsertTasks(taskInput);
+      return await onUpsertTask(taskInput);
     },
     removeTask: async (_, args) => {
       const { id } = args;

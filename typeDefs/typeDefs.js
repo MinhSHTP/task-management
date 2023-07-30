@@ -3,6 +3,7 @@ const mutateTypeDefs = require("./mutateTypeDefs");
 const taskTypeDefs = require("./taskTypeDefs");
 const authTypeDefs = require("./authTypeDefs");
 const userTypeDefs = require("./userTypeDefs");
+const groupTypeDefs = require("./groupTypeDefs");
 const scalars = require("./scalars");
 
 const typeDefs = `#graphql
@@ -12,6 +13,7 @@ const typeDefs = `#graphql
   ${taskTypeDefs}
   ${authTypeDefs}
   ${userTypeDefs}
+  ${groupTypeDefs}
 `;
 
 module.exports = typeDefs;
