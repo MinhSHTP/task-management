@@ -26,6 +26,6 @@ const groupResolvers = {
 };
 
 module.exports = {
-  groupQueries: groupResolvers.Query,
-  groupMutations: groupResolvers.Mutation,
+  queries: groupResolvers.Query,
+  mutations: groupResolvers.Mutation,
 };

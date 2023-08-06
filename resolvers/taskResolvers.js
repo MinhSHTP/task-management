@@ -26,6 +26,6 @@ const taskResolvers = {
 };
 
 module.exports = {
-  taskQueries: taskResolvers.Query,
-  taskMutations: taskResolvers.Mutation,
+  queries: taskResolvers.Query,
+  mutations: taskResolvers.Mutation,
 };

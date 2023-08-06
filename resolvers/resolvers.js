@@ -1,7 +1,16 @@
-const { taskQueries, taskMutations } = require("./taskResolvers");
-const { userQueries, userMutations } = require("./userResolvers");
-const { authMutations } = require("./authResolvers");
-const { groupQueries, groupMutations } = require("./groupResolvers");
+const {
+  queries: taskQueries,
+  mutations: taskMutations,
+} = require("./taskResolvers");
+const {
+  queries: userQueries,
+  mutations: userMutations,
+} = require("./userResolvers");
+const { mutations: authMutations } = require("./authResolvers");
+const {
+  queries: groupQueries,
+  mutations: groupMutations,
+} = require("./groupResolvers");
 
 const resolvers = {
   Query: {
