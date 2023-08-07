@@ -1,4 +1,4 @@
-const userResolvers = require("./userResolvers");
+const userResolvers = require("../userResolvers");
 
 describe("Verify User Resolver...", () => {
   test("Exported queries and mutations", () => {

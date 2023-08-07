@@ -1,4 +1,4 @@
-const authResolvers = require("./authResolvers");
+const authResolvers = require("../authResolvers");
 
 describe("Verify Auth Resolver...", () => {
   test("Exported queries and mutations", () => {

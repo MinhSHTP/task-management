@@ -1,4 +1,4 @@
-const taskResolvers = require("./taskResolvers");
+const taskResolvers = require("../taskResolvers");
 
 describe("Verify Task Resolver...", () => {
   test("Exported queries and mutations", () => {

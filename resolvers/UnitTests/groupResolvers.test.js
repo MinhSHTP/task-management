@@ -1,4 +1,4 @@
-const groupResolvers = require("./groupResolvers");
+const groupResolvers = require("../groupResolvers");
 
 describe("Verify Group Resolver...", () => {
   test("Exported queries and mutations", () => {

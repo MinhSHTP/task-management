@@ -37,12 +37,35 @@ const authMiddleware = async (request) => {
     };
 };
 
+const authPlugin = () => {
+  return {
+    requestDidStart(requestContext) {
+      const {
+        contextValue: apolloContext,
+        // request: { variables: requestVariables },
+      } = requestContext;
+      return {
+        didResolveOperation(resolutionContext) {
+          const { isAuth } = apolloContext;
+          resolutionContext.operation.selectionSet.selections.forEach(
+            (selection) => {
+              const { value: operationName } = selection.name;
+              endpointAuth(operationName, isAuth);
+            }
+          );
+        },
+      };
+    },
+  };
+};
+
 const startServer = async () => {
   const app = new express();
 
   const graphqlServer = new ApolloServer({
     typeDefs,
     resolvers,
+    plugins: [authPlugin()],
   });
 
   await graphqlServer.start();
@@ -64,6 +87,14 @@ const connectDB = () => {
     .connect(process.env.MONGODB_CONNECTION, { useNewUrlParser: true })
     .then(() => console.log("Connected to DB"))
     .catch((err) => console.error(`Connect to DB failed ${err.message}`));
+};
+
+const endpointAuth = (endpoint, isAuth, isDeleted, isStatus, isChangedRole) => {
+  const ignoreEndpoints = ["login", "__schema"];
+
+  if (ignoreEndpoints.indexOf(endpoint.toLowerCase()) === -1 && !isAuth) {
+    throw new AuthenticationError("Unauthorized");
+  }
 };
 
 connectDB();
