@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for resolvers/taskResolvers.js</title>
+    <title>Code coverage report for resolvers/userResolvers.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">resolvers</a> taskResolvers.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">resolvers</a> userResolvers.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -125,36 +125,36 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const Task = require("../schemas/Task");
-const taskService = require("../services/base-service")(Task);
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const User = require("../schemas/User");
+const userService = require("../services/base-service")(User);
 const {
-  get: getTasks,
-  upsert: onUpsertTask,
-  remove: onRemoveTask,
-} = taskService;
+  get: getUsers,
+  upsert: onUpsertUser,
+  remove: onRemoveUser,
+} = userService;
 &nbsp;
-const taskResolvers = {
+const userResolvers = {
   Query: {
-    tasks: <span class="fstat-no" title="function not covered" >async () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      const result = await getTasks();</span>
+    users: <span class="fstat-no" title="function not covered" >async () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      const result = await getUsers();</span>
 <span class="cstat-no" title="statement not covered" >      return result || [];</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
   },
   Mutation: {
-    upsertTask: <span class="fstat-no" title="function not covered" >async (_, args) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      const { taskInput } = args;</span>
-<span class="cstat-no" title="statement not covered" >      return await onUpsertTask(taskInput);</span>
+    upsertUser: <span class="fstat-no" title="function not covered" >async (_, args) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      const { userInput } = args;</span>
+<span class="cstat-no" title="statement not covered" >      return await onUpsertUser(userInput);</span>
     },
-    removeTask: <span class="fstat-no" title="function not covered" >async (_, args) =&gt; {</span>
+    removeUser: <span class="fstat-no" title="function not covered" >async (_, args) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      const { id } = args;</span>
-<span class="cstat-no" title="statement not covered" >      return await onRemoveTask(id);</span>
+<span class="cstat-no" title="statement not covered" >      return await onRemoveUser(id);</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
   },
 };
 &nbsp;
-module.exports = {
-  queries: taskResolvers.Query,
-  mutations: taskResolvers.Mutation,
+module.exports = module.exports = {
+  queries: userResolvers.Query,
+  mutations: userResolvers.Mutation,
 };
 &nbsp;</pre></td></tr></table></pre>
 

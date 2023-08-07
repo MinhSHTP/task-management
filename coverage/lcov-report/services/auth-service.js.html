@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for resolvers/taskResolvers.js</title>
+    <title>Code coverage report for services/auth-service.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">resolvers</a> taskResolvers.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">services</a> auth-service.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">74.19% </span>
+                <span class="strong">29.62% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>23/31</span>
+                <span class='fraction'>8/27</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">74.19% </span>
+                <span class="strong">29.62% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>23/31</span>
+                <span class='fraction'>8/27</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -90,16 +90,7 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -108,54 +99,51 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const Task = require("../schemas/Task");
-const taskService = require("../services/base-service")(Task);
-const {
-  get: getTasks,
-  upsert: onUpsertTask,
-  remove: onRemoveTask,
-} = taskService;
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const bcrypt = require("bcrypt");
+const jsonwebtoken = require("jsonwebtoken");
+const User = require("../schemas/User");
+const { getSecretKey } = require("../utils/utils");
 &nbsp;
-const taskResolvers = {
-  Query: {
-    tasks: <span class="fstat-no" title="function not covered" >async () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      const result = await getTasks();</span>
-<span class="cstat-no" title="statement not covered" >      return result || [];</span>
-<span class="cstat-no" title="statement not covered" >    },</span>
-  },
-  Mutation: {
-    upsertTask: <span class="fstat-no" title="function not covered" >async (_, args) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      const { taskInput } = args;</span>
-<span class="cstat-no" title="statement not covered" >      return await onUpsertTask(taskInput);</span>
-    },
-    removeTask: <span class="fstat-no" title="function not covered" >async (_, args) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      const { id } = args;</span>
-<span class="cstat-no" title="statement not covered" >      return await onRemoveTask(id);</span>
-<span class="cstat-no" title="statement not covered" >    },</span>
-  },
-};
+const doLogin = <span class="fstat-no" title="function not covered" >async ({ username, password }) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const userInfo = await User.findOne({ username }).lean();</span>
+<span class="cstat-no" title="statement not covered" >  if (!userInfo || !bcrypt.compareSync(password, userInfo.password))</span>
+<span class="cstat-no" title="statement not covered" >    throw new Error("Username or password is wrong");</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const secretKey = await getSecretKey();</span>
+<span class="cstat-no" title="statement not covered" >  const signOptions = {</span>
+<span class="cstat-no" title="statement not covered" >    algorithm: "HS256",</span>
+<span class="cstat-no" title="statement not covered" >    subject: userInfo._id.toString(),</span>
+<span class="cstat-no" title="statement not covered" >    expiresIn: "1d",</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  delete userInfo.password;</span>
+<span class="cstat-no" title="statement not covered" >  const token = jsonwebtoken.sign(userInfo, secretKey, signOptions);</span>
+<span class="cstat-no" title="statement not covered" >  return {</span>
+<span class="cstat-no" title="statement not covered" >    success: true,</span>
+<span class="cstat-no" title="statement not covered" >    message: `Login success`,</span>
+<span class="cstat-no" title="statement not covered" >    token,</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
-module.exports = {
-  queries: taskResolvers.Query,
-  mutations: taskResolvers.Mutation,
-};
+module.exports = { doLogin };
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
