@@ -89,7 +89,7 @@ const connectDB = () => {
     .catch((err) => console.error(`Connect to DB failed ${err.message}`));
 };
 
-const endpointAuth = (endpoint, isAuth, isDeleted, isStatus, isChangedRole) => {
+const endpointAuth = (endpoint, isAuth) => {
   const ignoreEndpoints = ["login", "__schema"];
 
   if (ignoreEndpoints.indexOf(endpoint.toLowerCase()) === -1 && !isAuth) {
