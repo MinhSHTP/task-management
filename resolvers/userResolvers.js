@@ -25,7 +25,7 @@ const userResolvers = {
   },
 };
 
-module.exports = module.exports = {
+module.exports = {
   queries: userResolvers.Query,
   mutations: userResolvers.Mutation,
 };
