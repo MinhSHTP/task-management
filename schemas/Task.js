@@ -11,6 +11,12 @@ const schema = new Schema(
       default: "To Do",
     },
     isDeleted: { type: Boolean, default: false },
+    updatedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user",
+    },
+    assignees: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
+    assignedGroups: [{ type: mongoose.Schema.Types.ObjectId, ref: "group" }],
   },
   {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

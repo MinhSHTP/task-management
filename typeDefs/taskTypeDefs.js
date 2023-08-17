@@ -4,6 +4,9 @@ const taskTypeDefs = `
         name: String
         status: String
         isDeleted: Boolean
+        updatedBy: String
+        assignees: Array
+        assignedGroups: Array
     }
 
     input TaskInput {
@@ -11,6 +14,9 @@ const taskTypeDefs = `
         name: String
         status: String
         isDeleted: Boolean
+        updatedBy: String
+        assignees: Array
+        assignedGroups: Array
     }
 `;
 
