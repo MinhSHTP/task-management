@@ -14,8 +14,11 @@ const taskResolvers = {
     },
   },
   Mutation: {
-    upsertTask: async (_, args) => {
+    upsertTask: async (_, args, context) => {
       const { taskInput } = args;
+      if (!taskInput.id) {
+        taskInput.createdBy = context.user._id;
+      }
       return await onUpsertTask(taskInput);
     },
     removeTask: async (_, args) => {
