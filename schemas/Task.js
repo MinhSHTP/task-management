@@ -17,6 +17,11 @@ const schema = new Schema(
     },
     assignees: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
     assignedGroups: [{ type: mongoose.Schema.Types.ObjectId, ref: "group" }],
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user",
+    },
+    description: { type: String },
   },
   {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

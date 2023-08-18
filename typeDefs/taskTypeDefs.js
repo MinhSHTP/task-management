@@ -7,6 +7,8 @@ const taskTypeDefs = `
         updatedBy: String
         assignees: Array
         assignedGroups: Array
+        createdBy: String
+        description: String
     }
 
     input TaskInput {
@@ -17,6 +19,8 @@ const taskTypeDefs = `
         updatedBy: String
         assignees: Array
         assignedGroups: Array
+        createdBy: String
+        description: String
     }
 `;
 
