@@ -21,6 +21,7 @@ const doLogin = async ({ username, password }) => {
     success: true,
     message: `Login success`,
     token,
+    userId: userInfo._id.toString(),
   };
 };
 

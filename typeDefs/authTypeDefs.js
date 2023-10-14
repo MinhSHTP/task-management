@@ -3,6 +3,7 @@ const authTypeDefs = `
         success: Boolean!
         message: String
         token: String
+        userId: String
     }
 
     input LoginInput {
