@@ -3,6 +3,7 @@ const queryTypeDefs = `
         tasks: [Task]!
         users: [User]!
         groups: [Group]!
+        projects: [Project]!
     }
 `;
 

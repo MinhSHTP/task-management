@@ -4,6 +4,7 @@ const taskTypeDefs = require("./taskTypeDefs");
 const authTypeDefs = require("./authTypeDefs");
 const userTypeDefs = require("./userTypeDefs");
 const groupTypeDefs = require("./groupTypeDefs");
+const projectTypeDefs = require("./projectTypeDefs");
 const scalars = require("./scalars");
 
 const typeDefs = `#graphql
@@ -14,6 +15,7 @@ const typeDefs = `#graphql
   ${authTypeDefs}
   ${userTypeDefs}
   ${groupTypeDefs}
+  ${projectTypeDefs}
 `;
 
 module.exports = typeDefs;
