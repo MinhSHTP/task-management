@@ -6,7 +6,7 @@ const schema = new Schema(
     username: { type: String },
     password: { type: String },
     email: { type: String },
-    displayname: { type: String },
+    display_name: { type: String },
     role: { type: String },
     joined_group: [{ type: mongoose.Schema.Types.ObjectId, ref: "group" }],
     joining_group: [{ type: mongoose.Schema.Types.ObjectId, ref: "group" }],

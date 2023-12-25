@@ -4,7 +4,7 @@ const userTypeDefs = `
         username: String
         password: String
         email: String
-        displayname: String
+        display_name: String
         role: String
         joined_group: Array
         joining_group: Array
@@ -14,7 +14,7 @@ const userTypeDefs = `
     input UserInput {
         username: String
         email: String
-        displayname: String
+        display_name: String
         role: String
     }
 

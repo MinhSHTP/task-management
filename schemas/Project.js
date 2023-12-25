@@ -5,6 +5,7 @@ const schema = new Schema(
   {
     name: { type: String },
     members: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
+    groups: [{ type: mongoose.Schema.Types.ObjectId, ref: "group" }],
     manager: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
   },
   {
